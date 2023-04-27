@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;">
+
+    {% if user.is_staff %}
+    <div class="text-right m-sm-4">
+    <a class="btn btn-primary" href="{% url 'listaCategoria' %}">Editar Categorias</a> 
+    </div>  
+    {% endif %}
+
+    <form style='text-align:center' action="">{% csrf_token %}
+        <h1 class="m-0 text-center text-white">BookTrade</h1>
+        <br>
+        <br>
+        <div class="container">
+        <p class="m-0 text-center text-white">¡Bienvenido a BookTrade! La plataforma ideal para comprar, vender e intercambiar tus libros favoritos.</p>
+        <br>
+        
+        {% if user.is_authenticated %}
+        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'creaLibro' %}">¡Vende tu Libro!</a>    
+        {% else %}   
+        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'registroUsuario' %}">Regístrate</a>
+        <a class="btn btn-primary btn-lg px-4 me-sm-3" href="{% url 'Login' %}">Iniciar Sesión</a>
+        {% endif %}
+        </div>
+        <br>
+        <br>
+        <h3 class="m-0 text-center text-white">{{mensaje}}</h3>
+    </form>
+
+
+        {% for field_error in Formulario.errors.values  %}
+
+
+            {% for error in fields_error %}
+                <li>{{error}}</li>
+            {% endfor %}
+
+
+        {% endfor %}
+
+{% endblock contenido %}
+    

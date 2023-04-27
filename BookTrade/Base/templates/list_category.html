@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body class="m-0 text-center text-white" style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"> 
+
+<div class="text-right m-sm-4">
+<a class="btn btn-primary btn-lg px-2 me-sm-3 text-right" href="{% url 'creaCategoria' %}">Nueva Categoría</a>
+</div>
+
+<br>
+
+<div class="container text-center">
+<h1>Categorias existentes:</h1>
+</div>
+<br>
+<div class="container">
+  
+{% for categoria in categorias %}
+    <li line-height="1.5em" class='text-center'>
+        <span style="font-size: 1.3em;">{{categoria.nombre}} 
+    </li>
+    </span><a class="btn btn-outline-light" href="{% url 'actualizaCategoria' categoria.id %}">Editar</a><a class="btn btn btn-outline-danger" href="{% url 'eliminaCategoria' categoria.id %}">Eliminar</a>
+    
+{% endfor %}
+</div>   
+
+{% endblock contenido %}

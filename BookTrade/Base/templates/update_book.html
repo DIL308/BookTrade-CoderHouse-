@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body>
+ 
+<div class="container text-white">
+    <h4>Editar Publicación:</h4>  
+</div>
+
+ <br>
+ 
+<div class="container text-white text-left col-lg-6">
+  <div class="form-floating mb-3" type="text">
+    <form action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+      {{form.as_p}}
+      <button class="btn btn-primary" type="submit"> Actualizar </button>
+
+    </form>
+  </div>
+</div>
+{% endblock contenido %}

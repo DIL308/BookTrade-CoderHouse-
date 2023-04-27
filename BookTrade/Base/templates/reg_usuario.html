@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;">   
+{% if request.method == "GET"   %}
+    <div class="container" >          
+        <h1 class="m-0 text-center text-white" style='text-align:center'>¡Regístrate!</h1>
+    <div class="form-group">
+    <br>
+    <br>
+    <form class="m-0 text-center text-white" style="text-align: center;" method="post" enctype="multipart/form-data">{% csrf_token %} 
+        {{miFormulario.as_p}}
+        <p>La contraseña debe tener al menos 8 caracteres</p>
+        <div class="container text-center">
+        <button class="btn btn-primary" type="submit">Registrarse</button>
+        <br>
+        <br>
+        <p>¿Ya tienes cuenta?    <a class="btn btn-outline-light" href="{% url 'Login' %}">Inicia Sesión</a></p>
+    </div>
+    </form>
+    </div>
+    {% else %}   
+        {% if validacion == 'OK' %}
+            <h1 class="m-0 text-center text-white" style='text-align:center'>¡Bienvenido!</h1>
+            <br>
+            <br>
+            <center class="m-0 text-center text-white"> {{mensaje}}</center>
+            <br>
+            <center><a class="m-0 text-center text-white btn btn-outline-primary" href="{% url 'Login' %}">Ingresar a la plataforma</a></center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        {% else %}
+            <h1 class="m-0 text-center text-white" style='text-align:center'>Ups, algo salió mal</h1>
+            <br>
+            <br>
+            <center class="m-0 text-center text-white"> {{mensaje}}</center>
+            <br>
+            <center><a class="m-0 text-center text-white btn btn-outline-primary" href="{% url 'registroUsuario' %}">Volver a intentarlo</a></center>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+        {% endif %}                
+                
+    {% endif %}
+{% endblock contenido %}
+    

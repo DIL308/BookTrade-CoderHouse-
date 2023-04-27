@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body>
+ 
+<div class="text-center text-white">
+    <h1>Actualización de perfil:</h1>
+</div>
+
+<br>
+
+<div class="text-center text-white">
+      <form action="" method="POST">{% csrf_token %}
+      
+      {{Formulario.as_p}}
+      
+      <div>
+      <button class="btn btn-primary" type="submit"> Actualizar </button>
+      <a href="{% url 'detallePerfil' user.id %}" class="btn btn-secondary"> Cancelar </a> 
+      </div>
+      </form>
+</div>
+{% endblock contenido %}

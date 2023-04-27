@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body> 
+
+<div class="text-center text-white">
+  <h1>Editar Categoría:</h1>
+</div>
+ 
+  <br>
+
+<div class="text-center text-white">
+  <form action="" method="POST">{% csrf_token %}
+
+    {{form.as_p}}
+
+    <div>
+    <button class="btn btn-primary" type="submit"> Actualizar </button>
+    {% include 'cancelar.html' %}
+  </div> 
+  </form>
+</div>
+{% endblock contenido %}

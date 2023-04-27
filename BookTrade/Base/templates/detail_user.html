@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body> 
+
+<div class="text-center text-white">
+<h1>Mi Perfil</h1>
+</div>
+<br>
+<div class="text-center text-white">
+<h3>{{mensaje}}</h3>  
+</div>
+<br>
+<span style="font-size: 1.2em;"><div class="text-center text-white"><span style="font-size: 1.2em;"></span>
+    <li><strong>Usuario:</strong> {{ user.username }}</li> 
+    <li><strong>Nombre:</strong> {{ user.first_name }}</li>
+    <li><strong>Apellido:</strong> {{ user.last_name }}</li>
+    <li><strong>Email:</strong> {{ user.email }}</li>
+    <br>
+    <div>
+    <a class="btn btn-primary" href="{% url 'actualizaUsuario' %}"> Editar mis datos</a>
+    </div>
+</div></span>
+
+
+
+{% endblock contenido %}

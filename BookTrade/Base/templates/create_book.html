@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body> 
+
+<div class="text-center text-white">
+<h1>Vender un libro:</h1>
+</div>
+
+<br>
+
+<div class="text-center text-white">
+    <form  class="m-0 text-center text-white" action="" method="POST" enctype="multipart/form-data">{% csrf_token %}
+
+    {{form.as_p}}
+
+    <div>
+    <button class="btn btn-primary" type="submit"> Crear </button>
+    </div>
+    </form>
+</div>
+{% endblock contenido %}

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body>
+<h1 class="text-white">Lista de Libros:</h1>
+
+<div class="container text-center text-white">
+    <div class="row">
+    
+               
+            {% for libro in libros %}
+            <div class="col-sm-6 align-items-center">
+                <div class="card-body">
+                <a href="{% url 'detalleLibro' libro.id %}"><img src="{{libro.imagen.url}}" class="" width="100px"></a>
+                <h2>{{libro.titulo}}</h2>
+                <br>
+                <br>
+                </div>
+            </div>
+            {% endfor %}
+
+    </div>
+</div>
+    
+{% endblock contenido %}

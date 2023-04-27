@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"> 
+  <h1 class="m-0 text-center text-white" style="text-align: center;" >Ingreso</h1>
+  <br>
+  <br>
+  <form action="" class="m-0 text-center text-white" style="text-align: center;" method="POST" enctype="multipart/form-data">{% csrf_token %}
+  <!--<form action="" method="POST">{% csrf_token %}-->
+
+    {{Formulario.as_p}}
+
+    <button class="btn btn-primary" type="submit"> Inicia sesión </button>
+    <br>
+    <br>
+    <p>¿No tienes cuenta?  <a class="btn btn-outline-light" href="{% url 'registroUsuario' %}">¡Regístrate!</a></p>
+  </form>
+
+{% endblock contenido %}

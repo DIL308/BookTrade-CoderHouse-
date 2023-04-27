@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body>
+    <h1>Prueba Formulario</h1>
+    <!--Si no se pone nada en la url, se reenvía a sí mismo-->
+    <form action="" method="POST"> {% csrf_token %}
+        {{mensaje}}
+        <button type="submit">Registrar</button>
+    </form>
+{% endblock contenido %}
+    

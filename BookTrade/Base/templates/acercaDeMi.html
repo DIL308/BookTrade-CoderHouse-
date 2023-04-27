@@ -1,0 +1,46 @@
+
+{% extends 'base.html' %}
+{% load static %}
+
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body> 
+
+
+<br>
+<br>
+
+
+    <div class="container">
+       <h2 class="text-center text-white">
+           Acerca de Mi
+       </h2>
+       <br>
+       <div class="row g-4">
+           <div class="col-md-6 col-lg-3">
+               <div class="card bg-light">
+                    <div class="card-body text-center">
+                    <h3 class="card-title mb-3">Daniel López</h3>
+                    <p class="card-text">Python Developer Jr.</p>
+                    <p class="card-text">Sigueme en:</p>
+                    <a href="https://github.com/dil308"><i class="bi bi-github text-dark mx-1"></i></a>
+                    <a href="https://www.linkedin.com/in/daniel-lópez-744308149/"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                    </div>
+               </div>
+           </div>
+           <div class="col">
+            <div class="">
+                 <div class="text-center text-white">
+                    <p>¡Hola! Mi nombre es Daniel López y llevo 3 años trabajando en el campo de la analítica de datos, puntualmente en el usu de SQL y PowerBI. Actualmente estoy estudiando Python y su framework de Django para mejorar mis habilidades y expandir mis conocimientos en nuevas áreas de la tecnología. ¡Gracias por visiar mi página!</p>
+                 </div>
+            </div>
+        </div>
+       </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+
+{% endblock contenido %}

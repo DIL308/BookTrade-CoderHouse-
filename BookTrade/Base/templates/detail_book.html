@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body>
+
+
+<div class="text-right m-sm-4">
+  {% if user == libro.usuario %}
+        <a class="btn btn-primary" href="{% url 'actualizaLibro' libro.id %}">Editar</a>
+        <a class="btn btn-danger"  href="{% url 'eliminaLibro' libro.id %}">Eliminar</a>  
+  {% endif %}
+  </div>
+
+
+<div class="text-center text-white">
+<h1>{{libro.titulo}} - ${{libro.precio}}</h1>
+</div>
+
+<div class="text-center">
+{% if libro.imagen %}
+    <p><img src="{{libro.imagen.url}}" alt="Foto" width="300" height="400"></p>
+{% endif %}
+</div>
+
+<div class="text-center text-white">
+  <dl class="text-center">
+    <dt>Autor: {{libro.autor}}</dt>
+    <dt>Categoria: {{libro.categoria}}</dt>
+    <dt>Editor: {{libro.editor}}</dt>
+    <br>
+    <dt><h4>Contacto del Vendedor:</h4></dt>
+    <dt>Email: {{libro.emailContacto}}</dt> 
+    <dt>Teléfono: {{libro.telefonoContacto}}</dt> 
+  </dl>
+</div>
+
+
+<div class="text-white">
+{% if libro.descripcion %}
+
+<h3>Descripción del producto:</h3>
+<p class="m-sm-4"> {{libro.descripcion}}</p>
+
+{% endif %}
+</div> 
+<br>
+
+<div class="text-white m-sm-4">
+{% if mensajes %}
+  <h4>Comentarios:</h4>
+  <br>
+  <div class="container">
+      {% for mensaje in mensajes %}
+      <div class="comment-container">
+      <p><strong>{{ user.username}}</strong></p>
+      <p>{{ mensaje.comentario }}</p>
+      <p><small>{{ mensaje.fechaMensaje }}</small></p>
+      </div>
+      {% endfor %}
+  </ul>
+{% else %}
+<p>No hay comentarios en esta publicación</p>
+{% endif %}
+<a class="btn btn-primary" href="{% url 'comentar' libro.id %}">Añadir Comentario</a>
+</div>
+</div>
+{% endblock contenido %}

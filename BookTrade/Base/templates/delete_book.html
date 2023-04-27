@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block contenido %}
+<body style="background: url('{% static 'imagenes/background - Center.jpg' %}') no-repeat center center fixed; background-size: cover;"></body> 
+<br>
+<br>
+
+<form class="m-0 text-center text-white" method="POST">{% csrf_token %}
+
+  <p>¿Está seguro que desea eliminar este libro?</p>
+
+  <button class="btn btn-danger" type="submit"> Confirmar </button>
+  <a class="btn btn-primary" href="{% url 'listaLibro' %}">Cancelar</a>
+
+</form>
+<br>
+<br>
+<br>
+{% endblock contenido %}
